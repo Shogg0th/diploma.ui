@@ -3,14 +3,11 @@
     <md-whiteframe class="map-wrapper" md-elevation="5">
 
       <gmap-map :center="center" :zoom="zoom" style="width: 100%; height: 100%">
-        <gmap-marker :icon="iconItem" :key="index" v-for="(m, index) in getMarkers"
-          :position="m" :clickable="true" @click="showWindow(m)">
+        <gmap-marker :icon="iconItem" :key="index" v-for="(m, index) in getMarkers" :position="m" :clickable="true" @click="showWindow(m)">
         </gmap-marker>
-        <gmap-marker :icon="iconCurrent" :draggable="true" v-if="showCurrentLocation"
-          @drag="dragSelfLocation" :position="currentLocation"></gmap-marker>
+        <gmap-marker :icon="iconCurrent" :draggable="true" v-if="showCurrentLocation" @drag="dragSelfLocation" :position="currentLocation"></gmap-marker>
 
-        <gmap-info-window :options="infoOptions" :position="info.marker"
-          @closeclick="info.show = false" :opened="info.show">
+        <gmap-info-window :options="infoOptions" :position="info.marker" @closeclick="info.show = false" :opened="info.show">
           <md-card class="info-card">
             <md-card-media>
               <img class="photo" :src="info.marker.imgLink" alt="People">
@@ -24,14 +21,25 @@
               </div>
             </md-card-header>
             <md-card-content>
-              <h3 class="md-subheading">Стан роботи:</h3>
-              <div class="card-description">
-                {{info.marker.statusText}}
+              <div class="desc">
+                <h3 class="md-subheading">Стан роботи:</h3>
+                <div class="card-description">
+                  {{info.marker.statusText}}
+                </div>
+              </div>
+              <div class="desc">
+
+                <h3 class="md-subheading">Проба води:</h3>
+                <a :href="info.marker.documentLink" class="md-icon-button">
+                  <md-icon>description</md-icon>
+                   
+                </a>
               </div>
             </md-card-content>
             <md-card-actions>
               <md-button @click.native="like" class="md-icon-button">
                 <md-icon>favorite</md-icon>
+                <md-tooltip md-direction="bottom">Мені подобаэться</md-tooltip>
               </md-button>
               <span class="like">{{info.marker.like}}</span>
             </md-card-actions>

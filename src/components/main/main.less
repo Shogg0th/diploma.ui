@@ -1,33 +1,43 @@
 .root {
+  display: flex;
+  align-content: center;
+  height: 100%;
+
+  .map-wrapper {
+
+    flex: 1;
+    height: 80vh;
+    margin: 10px;
+    .info-card {
+      max-width: 400px;
+      .photo {
+        max-height: 300px;
+        max-width: 400px;
+      }
+    }
+  }
+  .tools {
     display: flex;
-    align-content: center;
-    height: 100%;
-    
-    .map-wrapper {
-      
-        flex: 1;
-        height:  90vh;
-        margin: 10px;
-        .info-card {
-            max-width: 400px;
-            .photo {
-                max-height: 300px;
-                max-width: 400px;
-            }
-        }
-    }
-    .tools {
-        display: flex;
-        flex-direction: column;
-        margin: 10px 10px 10px 0;
+    flex-direction: column;
+    margin: 10px 10px 10px 0;
 
-
-        .switch-wrapper {
-            margin-left: 20px;
-        }
+    .switch-wrapper {
+      margin-left: 20px;
     }
+  }
 
-    .like {
-        font-size: 1.9em;
+  .like {
+    font-size: 1.9em;
+  }
+
+  .desc {
+    display: flex;
+    align-items: center;
+    a{
+      margin-left: 15px;
     }
+    .card-description {
+      margin-left: 13px;
+    }
+  }
 }

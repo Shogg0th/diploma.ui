@@ -81,6 +81,9 @@ export default {
       }).then(response => {
         this.markers = response.body.map(item => {
           item.statusText = item.status ? "Працює" : "Не працює";
+          let numberPattern = /\d+/g,
+            number = item.name.match(numberPattern);
+          item.documentLink = "http://vodokanal.kiev.ua/buvets/download/" + number;
           return item;
         })
       });

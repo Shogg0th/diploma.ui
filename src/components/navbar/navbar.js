@@ -33,6 +33,9 @@ export default {
         openLoginDialog() {
             this.$refs['loginDialog'].open();
         },
+          openAboutDialog() {
+            this.$refs['about'].open();
+        },
         closeLoginDialog() {
             this.$refs['loginDialog'].close();
         },
